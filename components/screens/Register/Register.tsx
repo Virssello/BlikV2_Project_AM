@@ -15,7 +15,7 @@ import {
 export const Register = () => {
     const navigation = useNavigation<StackNavigationProp<{
         Login: undefined,
-    
+
       }>>()
   return (
     <Center>
@@ -54,10 +54,7 @@ export const Register = () => {
           <FormControl.Label>Confirm Password</FormControl.Label>
           <Input type="password" />
         </FormControl>
-        <Button mt="2" colorScheme="gray" 
-        onPress={() => {
-                navigation.push('Login')
-              }}>Zaloguj</Button>
+        <Button mt="2" colorScheme="gray">Zarejestruj</Button>
       </VStack>
     </Box>
     </Center>

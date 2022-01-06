@@ -10,6 +10,7 @@ import { Register } from "./components/screens/Register/Register";
 import  TabMenu  from "./components/TabMenu/TabMenu"
 import { Main } from "./components/screens/Main/Main";
 import "react-native-gesture-handler";
+import  TopMenu  from "./components/screens/TopMenu/TopMenu";
 
 
 
@@ -23,7 +24,6 @@ const config = {
 export const theme = extendTheme({ config });
 
 const Stack = createStackNavigator();
-const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
@@ -31,12 +31,12 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="TabMenu" component={TabMenu} />
-          <Stack.Screen name="Main" component={Main} />
-          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Login" component={TopMenu} />
+          {/* <Stack.Screen name="TabMenu" component={TabMenu} /> */}
+          <Stack.Screen name="Main" component={TabMenu} />
+          {/* <Stack.Screen name="Register" component={Register} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
-  ); 
+  );
 }

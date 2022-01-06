@@ -31,7 +31,7 @@ export const Main = () => {
           <Heading size="lg">Welcome to Main Screen</Heading>
         </VStack>
       </Center>
-      <Tab.Navigator
+      {/* { <Tab.Navigator
         initialRouteName="Tab1"
         activeColor="lavender"
         labelStyle={{ fontSize: 12 }}
@@ -57,21 +57,21 @@ export const Main = () => {
             ),
           }}
         />
-      </Tab.Navigator>
+      </Tab.Navigator> } */}
     </>
   );
 };
 
-const Tab = createMaterialBottomTabNavigator();
+// const Tab = createMaterialBottomTabNavigator();
 
-const Tab1 = () => (
-  <Center _dark={{ bg: "gray.900" }} _light={{ bg: "gray.50" }} px={4} flex={1}>
-    <Text>Kod QR</Text>
-  </Center>
-);
+// const Tab1 = () => (
+//   <Center _dark={{ bg: "gray.900" }} _light={{ bg: "gray.50" }} px={4} flex={1}>
+//     <Text>Kod QR</Text>
+//   </Center>
+// );
 
-const Tab2 = () => (
-  <Center _dark={{ bg: "gray.900" }} _light={{ bg: "gray.50" }} px={4} flex={1}>
-    <Text>Karta</Text>
-  </Center>
-);
+// const Tab2 = () => (
+//   <Center _dark={{ bg: "gray.900" }} _light={{ bg: "gray.50" }} px={4} flex={1}>
+//     <Text>Karta</Text>
+//   </Center>
+// );

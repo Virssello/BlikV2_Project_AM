@@ -3,7 +3,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View } from "native-base";
 import React from "react";
-import NativeBaseIcon from "../../NativeBaseIcon";
+// import NativeBaseIcon from "../../NativeBaseIcon";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
 
@@ -13,7 +13,7 @@ export const Home = () => {
     Home: undefined,
     Login: undefined,
     TabMenu: undefined,
-    Register: undefined
+    // Register: undefined
   }>>()
   return (
     <Center
@@ -29,10 +29,10 @@ export const Home = () => {
                onPress={() => {
                 navigation.push('Login')
               }}>Zaloguj</Button>
-              <Button mt="3" colorScheme="gray" 
+              {/* <Button mt="3" colorScheme="gray"
               onPress={() => {
                 navigation.push('Register')
-              }}>Zarejestruj</Button>
+              }}>Zarejestruj</Button> */}
             </VStack>
           </Center>
 

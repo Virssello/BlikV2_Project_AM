@@ -68,7 +68,7 @@ export const Login = () => {
           </Link>
         </FormControl>
 
-        <Button mt="2" colorScheme="gray" 
+        <Button mt="2" colorScheme="gray"
         onPress={() => {
                 navigation.push('Main')
               }}>Zaloguj</Button>
