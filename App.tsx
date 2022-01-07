@@ -7,10 +7,10 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import { Home } from "./components/screens/Home/Home";
 import { Login } from "./components/screens/Login/Login";
 import { Register } from "./components/screens/Register/Register";
-import  TabMenu  from "./components/TabMenu/TabMenu"
+import  TabMenu  from "./components/menu/TabMenu/TabMenu"
 import { Main } from "./components/screens/Main/Main";
 import "react-native-gesture-handler";
-import  TopMenu  from "./components/screens/TopMenu/TopMenu";
+import  TopMenu  from "./components/menu/TopMenu/TopMenu";
 
 
 
