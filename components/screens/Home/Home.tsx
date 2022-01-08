@@ -3,7 +3,6 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View } from "native-base";
 import React from "react";
-// import NativeBaseIcon from "../../NativeBaseIcon";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
 
@@ -24,7 +23,6 @@ export const Home = () => {
           >
             <VStack space={5} alignItems="center">
               <Heading size="lg">Welcome to BlikV2</Heading>
-              <ToggleDarkMode />
               <Button mt="2" colorScheme="gray"
                onPress={() => {
                 navigation.push('Login')
@@ -37,22 +35,3 @@ export const Home = () => {
           </Center>
 
 )}
-
-
-
-function ToggleDarkMode() {
-    const { colorMode, toggleColorMode } = useColorMode();
-    return (
-      <HStack space={2} alignItems="center">
-        <Text>Dark</Text>
-        <Switch
-          isChecked={colorMode === "light" ? true : false}
-          onToggle={toggleColorMode}
-          aria-label={
-            colorMode === "light" ? "switch to dark mode" : "switch to light mode"
-          }
-        />
-        <Text>Light</Text>
-      </HStack>
-    );
-  }

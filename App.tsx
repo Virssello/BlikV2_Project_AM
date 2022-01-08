@@ -32,9 +32,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={TopMenu} />
-          {/* <Stack.Screen name="TabMenu" component={TabMenu} /> */}
           <Stack.Screen name="Main" component={TabMenu} />
-          {/* <Stack.Screen name="Register" component={Register} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
