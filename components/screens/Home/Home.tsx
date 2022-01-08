@@ -11,7 +11,10 @@ export const Home = () => {
   const navigation = useNavigation<StackNavigationProp<{
     Home: undefined,
     Login: undefined,
+    Approved: undefined,
     TabMenu: undefined,
+    Declined: undefined,
+    Payment: undefined,
     // Register: undefined
   }>>()
   return (
