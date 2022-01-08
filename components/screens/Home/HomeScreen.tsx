@@ -3,8 +3,8 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View } from "native-base";
 import React from "react";
-import { Login } from "../Login/Login";
-import { Register } from "../Register/Register";
+import { Login } from "../Login/LoginScreen";
+import { Register } from "../Register/RegisterScreen";
 
 
 export const Home = () => {

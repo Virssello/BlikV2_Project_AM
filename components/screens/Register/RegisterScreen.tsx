@@ -54,7 +54,7 @@ export const Register = () => {
           <FormControl.Label>Confirm Password</FormControl.Label>
           <Input type="password" />
         </FormControl>
-        <Button mt="2" colorScheme="gray">Zarejestruj</Button>
+        <Button mt="2" colorScheme="gray">Register</Button>
       </VStack>
     </Box>
     </Center>

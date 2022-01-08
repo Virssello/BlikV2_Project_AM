@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Main } from '../../screens/Main/Main';
-import  Scan  from '../../screens/Scan/Scan';
+import { Main } from '../../screens/Main/MainScreen';
+import  Scan  from '../../screens/Scan/ScanScreen';
 
 
 const Tab = createMaterialBottomTabNavigator();

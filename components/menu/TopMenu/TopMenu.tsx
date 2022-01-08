@@ -5,8 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Center } from 'native-base';
-import { Login } from '../../screens/Login/Login';
-import { Register } from '../../screens/Register/Register';
+import { Login } from '../../screens/Login/LoginScreen';
+import { Register } from '../../screens/Register/RegisterScreen';
 
 const Tab = createMaterialTopTabNavigator();
 

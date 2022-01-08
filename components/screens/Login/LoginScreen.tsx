@@ -1,7 +1,7 @@
 import * as React from "react"
 import { StackNavigationProp } from "@react-navigation/stack"
 import { useNavigation } from "@react-navigation/native"
-import { Main } from "../Main/Main";
+import { Main } from "../Main/MainScreen";
 import {
   Box,
   Text,
@@ -71,7 +71,7 @@ export const Login = () => {
         <Button mt="2" colorScheme="gray"
         onPress={() => {
                 navigation.push('Main')
-              }}>Zaloguj</Button>
+              }}>Login</Button>
 
         <HStack mt="6" justifyContent="center">
           <Text
