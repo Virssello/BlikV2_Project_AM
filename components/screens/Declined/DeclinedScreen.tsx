@@ -1,13 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View } from "native-base";
+import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View, CloseIcon } from "native-base";
 import React from "react";
 
 
 
 export const Declined = () => {
   const navigation = useNavigation<StackNavigationProp<{
-    Declined: undefined,
     Main: undefined,
   }>>()
   return (
@@ -18,7 +17,8 @@ export const Declined = () => {
             flex={1}
           >
             <VStack space={5} alignItems="center">
-              <Heading size="lg">Payment was declined, please try again :(</Heading>
+              <CloseIcon size="10" mt="0.5" color="error.500" />
+              <Heading size="lg" color="error.500">Payment was declined, please try again :C</Heading>
               <Button mt="2" colorScheme="gray"
                onPress={() => {
                 navigation.push('Main')

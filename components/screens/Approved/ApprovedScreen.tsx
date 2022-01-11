@@ -1,13 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View } from "native-base";
+import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View, CheckIcon } from "native-base";
 import React from "react";
 
 
 
 export const Approved = () => {
   const navigation = useNavigation<StackNavigationProp<{
-    Approved: undefined,
     Main: undefined,
   }>>()
   return (
@@ -18,7 +17,8 @@ export const Approved = () => {
             flex={1}
           >
             <VStack space={5} alignItems="center">
-              <Heading size="lg">Payment was approved :)</Heading>
+              <CheckIcon size="10" mt="0.5" color="emerald.500" />
+              <Heading size="lg" color="emerald.500">Payment was approved :)</Heading>
               <Button mt="2" colorScheme="gray"
                onPress={() => {
                 navigation.push('Main')
