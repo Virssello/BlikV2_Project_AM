@@ -1,23 +1,26 @@
 import * as React from "react";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/native";
-import { Main } from "../Main/MainScreen";
+
 import {
   Box,
-  Text,
-  Heading,
-  VStack,
+  Button,
+  Center,
   FormControl,
+  HStack,
+  Heading,
   Input,
   Link,
-  Button,
-  HStack,
-  Center,
   NativeBaseProvider,
+  Text,
+  VStack,
 } from "native-base";
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+
+import { AsyncStorage } from "react-native";
+import { Main } from "../Main/MainScreen";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { auth } from "../../config/Firebase/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 export const Login = () => {
   const navigation = useNavigation<
@@ -29,6 +32,8 @@ export const Login = () => {
 
 const [login, setLogin] = useState("");
 const [password, setPassword] = useState("");
+const STORAGE_KEY = '@save_name'
+
 
   return (
     <Center>
@@ -102,4 +107,14 @@ const [password, setPassword] = useState("");
       </Box>
     </Center>
   );
+
+  const saveData = async () => {
+    try {
+      await AsyncStorage.setItem(login, STORAGE_KEY)
+      alert('Data successfully saved')
+    } catch (e) {
+      alert('Failed to save the data to the storage')
+    };
+  }
 };
+
