@@ -1,16 +1,19 @@
-import React from "react";
-import { NativeBaseProvider, extendTheme } from "native-base";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { Home } from "./components/screens/Home/HomeScreen";
-import  TabMenu  from "./components/menu/TabMenu/TabMenu"
 import "react-native-gesture-handler";
-import  TopMenu  from "./components/menu/TopMenu/TopMenu";
+
+import * as React from "react";
+
+import { NativeBaseProvider, extendTheme } from "native-base";
+
 import { Approved } from "./components/screens/Approved/ApprovedScreen";
-import { Payment } from "./components/screens/Payment/PaymentScreen";
 import { Declined } from "./components/screens/Declined/DeclinedScreen"
-
-
+import { Home } from "./components/screens/Home/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { Payment } from "./components/screens/Payment/PaymentScreen";
+import { QRGenerator } from "./components/screens/QRGenerator/QRGeneratorScreen";
+import  TabMenu  from "./components/menu/TabMenu/TabMenu"
+import  TopMenu  from "./components/menu/TopMenu/TopMenu";
+import { Wallet } from "./components/screens/Wallet/WalletScreen";
+import { createStackNavigator } from "@react-navigation/stack";
 
 // Define the config
 const config = {
@@ -34,6 +37,8 @@ export default function App() {
           <Stack.Screen name="Payment" component={Payment}/>
           <Stack.Screen name="Approved" component={Approved}/>
           <Stack.Screen name="Declined" component={Declined} />
+          <Stack.Screen name="QRGenerator" component={QRGenerator} />
+          <Stack.Screen name="Wallet" component={Wallet} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

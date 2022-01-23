@@ -1,21 +1,30 @@
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { VStack } from "native-base";
-import React from "react";
-import { Button, SafeAreaView, StyleSheet, TextInput } from "react-native";
+import * as React from "react";
 
-export const Payment = () => {
-  const [number, onChangeNumber] = React.useState();
+import { Button, Center, Heading, VStack, View } from "native-base";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+
+import { SafeAreaInsetsContext } from "react-native-safe-area-context";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
+
+export const Payment = ({ route }) => {
+  const [number, setNumber] = React.useState("");
+  const { data } = route.params;
   const navigation = useNavigation<
     StackNavigationProp<{
       Payment: undefined;
       Approved: undefined;
+      Declined: undefined;
+      data: String;
     }>
   >();
 
   return (
     <VStack>
       <SafeAreaView>
+        <Center>
+          <Heading>Kwota do zaplaty to: {JSON.stringify(data)}</Heading>
+        </Center>
         <TextInput
           style={styles.input}
           textAlign="center"
@@ -24,9 +33,22 @@ export const Payment = () => {
           keyboardType="numeric"
           maxFontSizeMultiplier={2}
           maxLength={4}
+          onChangeText={(number) => setNumber(number)}
         />
       </SafeAreaView>
-
+      <View>
+        <Button
+          mt="2"
+          colorScheme="gray"
+          onPress={() => {
+            if (number == "1111") {
+              navigation.push("Approved");
+            } else navigation.push("Declined");
+          }}
+        >
+          Zaplac
+        </Button>
+      </View>
     </VStack>
   );
 };

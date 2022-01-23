@@ -1,9 +1,9 @@
-import { useNavigation } from "@react-navigation/native";
+import * as  React from "react";
+
+import { Button, Center, CheckIcon, Code, HStack, Heading, Link, Switch, Text, VStack, View, useColorMode } from "native-base";
+
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View, CheckIcon } from "native-base";
-import React from "react";
-
-
+import { useNavigation } from "@react-navigation/native";
 
 export const Approved = () => {
   const navigation = useNavigation<StackNavigationProp<{

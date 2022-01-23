@@ -9,8 +9,6 @@ import {
   Heading,
   Input,
   Link,
-  NativeBaseProvider,
-  Text,
   VStack,
 } from "native-base";
 
@@ -107,14 +105,5 @@ const STORAGE_KEY = '@save_name'
       </Box>
     </Center>
   );
-
-  const saveData = async () => {
-    try {
-      await AsyncStorage.setItem(login, STORAGE_KEY)
-      alert('Data successfully saved')
-    } catch (e) {
-      alert('Failed to save the data to the storage')
-    };
-  }
 };
 

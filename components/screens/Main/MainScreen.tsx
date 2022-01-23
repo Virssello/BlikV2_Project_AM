@@ -1,34 +1,27 @@
 import * as React from "react";
 
-import {
-  Button,
-  Center,
-  Code,
-  HStack,
-  Heading,
-  Link,
-  Switch,
-  Text,
-  VStack,
-  View,
-  useColorMode,
-} from "native-base";
+import { Button, Center, Heading, VStack } from "native-base";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
-import MaterialCommunityIcons from "@expo/vector-icons/build/MaterialCommunityIcons";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { auth } from "../../config/Firebase/firebase";
 
 export const Main = () => {
-  const navigation = useNavigation<StackNavigationProp<{
-    Home: undefined,
-    Login: undefined,
-    Approved: undefined,
-    TabMenu: undefined,
-    Declined: undefined,
-    Payment: undefined,
-    // Register: undefined
-  }>>()
+  const user = auth.currentUser;
+
+  const navigation = useNavigation<
+    StackNavigationProp<{
+      Home: undefined;
+      Login: undefined;
+      Approved: undefined;
+      TabMenu: undefined;
+      Declined: undefined;
+      Payment: { data: String };
+      QRGenerator: undefined;
+      Wallet: undefined;
+      // Register: undefined
+    }>
+  >();
   return (
     <>
       <Center
@@ -38,22 +31,54 @@ export const Main = () => {
         flex={1}
       >
         <VStack space={5} alignItems="center">
-          <Heading size="lg">Welcome to Main Screen </Heading>
-              <Button mt="4" colorScheme="gray"
-               onPress={() => {
-                navigation.push('Approved')
-              }}>Approved</Button>
-              <Button mt="5" colorScheme="gray"
-               onPress={() => {
-                navigation.push('Declined')
-              }}>Declined</Button>
-              <Button mt="6" colorScheme="gray"
-               onPress={() => {
-                navigation.push('Payment')
-              }}>Payment</Button>
+          <Heading size="lg">Welcome {user.email}</Heading>
+          <Button
+            mt="4"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("Approved");
+            }}
+          >
+            Approved
+          </Button>
+          <Button
+            mt="5"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("Declined");
+            }}
+          >
+            Declined
+          </Button>
+          <Button
+            mt="6"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("Payment");
+            }}
+          >
+            Payment
+          </Button>
+          <Button
+            mt="6"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("QRGenerator");
+            }}
+          >
+            QR Generator
+          </Button>
+          <Button
+            mt="6"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("Wallet");
+            }}
+          >
+            Wallet
+          </Button>
         </VStack>
       </Center>
     </>
   );
 };
-
