@@ -9,21 +9,22 @@ import { useNavigation } from "@react-navigation/native";
 
 export const Payment = ({ route }) => {
   const [number, setNumber] = React.useState("");
-  const { data } = route.params;
+  const { data: {amount, name} } = route.params;
   const navigation = useNavigation<
     StackNavigationProp<{
       Payment: undefined;
       Approved: undefined;
       Declined: undefined;
-      data: String;
+      data: {amount: Number, name: String};
     }>
   >();
+
 
   return (
     <VStack>
       <SafeAreaView>
         <Center>
-          <Heading>Kwota do zaplaty to: {JSON.stringify(data)}</Heading>
+          <Heading>Kwota do zaplaty to: {amount} za {name}</Heading>
         </Center>
         <TextInput
           style={styles.input}
