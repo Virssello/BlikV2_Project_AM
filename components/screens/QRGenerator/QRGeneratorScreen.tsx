@@ -24,7 +24,6 @@ export const QRGenerator = () => {
   const navigation = useNavigation<
     StackNavigationProp<{
       Main: undefined;
-      Wallet: undefined;
     }>
   >();
 

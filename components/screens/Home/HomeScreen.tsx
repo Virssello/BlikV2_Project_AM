@@ -13,11 +13,8 @@ import {
   useColorMode
 } from "native-base";
 
-import { Login } from "../Login/LoginScreen";
 import React from "react";
-import { Register } from "../Register/RegisterScreen";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
 
 export const Home = () => {
@@ -28,8 +25,6 @@ export const Home = () => {
   >();
   return (
     <Center
-      _dark={{ bg: "blueGray.900" }}
-      _light={{ bg: "blueGray.50" }}
       px={4}
       flex={1}
     >
