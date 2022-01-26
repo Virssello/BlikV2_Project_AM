@@ -11,24 +11,32 @@ import {
   Link,
   VStack,
 } from "native-base";
+import {
+  EmailAuthProvider,
+  getAuth,
+  reauthenticateWithCredential,
+  updatePassword,
+} from "firebase/auth";
 
 import { StackNavigationProp } from "@react-navigation/stack";
-import { auth } from "../../config/Firebase/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
-export const Login = () => {
+export const ChangePassword = () => {
   const navigation = useNavigation<
     StackNavigationProp<{
-      Register: undefined;
       Main: undefined;
-      ForgotPassword: undefined;
     }>
   >();
 
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [userProvidedPassword, setuserProvidedPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const credential = EmailAuthProvider.credential(
+    user.email,
+    userProvidedPassword
+  );
 
   return (
     <Center>
@@ -57,16 +65,28 @@ export const Login = () => {
 
         <VStack space={3} mt="5">
           <FormControl>
-            <FormControl.Label>Email ID</FormControl.Label>
-            <Input value={login} onChangeText={setLogin} />
+            <FormControl.Label>Old password</FormControl.Label>
+            <Input
+              value={userProvidedPassword}
+              onChangeText={setuserProvidedPassword}
+            />
           </FormControl>
           <FormControl>
-            <FormControl.Label>Password</FormControl.Label>
+            <FormControl.Label>New Password</FormControl.Label>
             <Input
               type="password"
-              value={password}
-              onChangeText={setPassword}
+              value={newPassword}
+              onChangeText={setNewPassword}
             />
+            <Link
+              _text={{
+                fontSize: "xs",
+                fontWeight: "500",
+                color: "gray.500",
+              }}
+              alignSelf="flex-end"
+              mt="1"
+            ></Link>
           </FormControl>
 
           <Button
@@ -74,7 +94,8 @@ export const Login = () => {
             colorScheme="gray"
             onPress={async () => {
               try {
-                await signInWithEmailAndPassword(auth, login, password);
+                await reauthenticateWithCredential(user, credential),
+                  await updatePassword(user, newPassword);
                 navigation.push("Main");
               } catch (error) {
                 console.error(error);
@@ -82,15 +103,6 @@ export const Login = () => {
             }}
           >
             Login
-          </Button>
-          <Button
-            mt="2"
-            colorScheme="gray"
-            onPress={() => {
-              navigation.push("ForgotPassword");
-            }}
-          >
-            Forgot password?
           </Button>
         </VStack>
       </Box>

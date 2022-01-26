@@ -11,24 +11,23 @@ import {
   Link,
   VStack,
 } from "native-base";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 import { StackNavigationProp } from "@react-navigation/stack";
-import { auth } from "../../config/Firebase/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
-export const Login = () => {
+export const ForgotPassword = () => {
   const navigation = useNavigation<
     StackNavigationProp<{
       Register: undefined;
+      Login: undefined;
       Main: undefined;
-      ForgotPassword: undefined;
     }>
   >();
 
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const auth = getAuth();
 
   return (
     <Center>
@@ -57,16 +56,21 @@ export const Login = () => {
 
         <VStack space={3} mt="5">
           <FormControl>
-            <FormControl.Label>Email ID</FormControl.Label>
-            <Input value={login} onChangeText={setLogin} />
+            <FormControl.Label>
+              Please, write your e-mail to reset password
+            </FormControl.Label>
+            <Input value={userEmail} onChangeText={setUserEmail} />
           </FormControl>
           <FormControl>
-            <FormControl.Label>Password</FormControl.Label>
-            <Input
-              type="password"
-              value={password}
-              onChangeText={setPassword}
-            />
+            <Link
+              _text={{
+                fontSize: "xs",
+                fontWeight: "500",
+                color: "gray.500",
+              }}
+              alignSelf="flex-end"
+              mt="1"
+            ></Link>
           </FormControl>
 
           <Button
@@ -74,23 +78,14 @@ export const Login = () => {
             colorScheme="gray"
             onPress={async () => {
               try {
-                await signInWithEmailAndPassword(auth, login, password);
-                navigation.push("Main");
+                await sendPasswordResetEmail(auth, userEmail),
+                  navigation.push("Login");
               } catch (error) {
                 console.error(error);
               }
             }}
           >
             Login
-          </Button>
-          <Button
-            mt="2"
-            colorScheme="gray"
-            onPress={() => {
-              navigation.push("ForgotPassword");
-            }}
-          >
-            Forgot password?
           </Button>
         </VStack>
       </Box>

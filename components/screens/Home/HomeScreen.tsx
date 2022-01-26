@@ -1,23 +1,24 @@
-import { useNavigation } from "@react-navigation/native";
+import {
+  Button,
+  Center,
+  Code,
+  HStack,
+  Heading,
+  Image,
+  Link,
+  Switch,
+  Text,
+  VStack,
+  View,
+  useColorMode
+} from "native-base";
+
+import { Login } from "../Login/LoginScreen";
+import React from "react";
+import { Register } from "../Register/RegisterScreen";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  Center,
-  VStack,
-  Heading,
-  HStack,
-  Code,
-  Link,
-  Text,
-  Switch,
-  useColorMode,
-  Button,
-  View,
-} from "native-base";
-import React from "react";
-import { Login } from "../Login/LoginScreen";
-import { Register } from "../Register/RegisterScreen";
-import Container from "../../layout/Container";
+import { useNavigation } from "@react-navigation/native";
 
 export const Home = () => {
   const navigation = useNavigation<
@@ -26,28 +27,32 @@ export const Home = () => {
     }>
   >();
   return (
-        <Center
-          _dark={{ bg: "blueGray.900" }}
-          _light={{ bg: "blueGray.50" }}
-          px={4}
-          flex={1}
-        >
-          <VStack space={5} alignItems="center">
-            <Heading size="lg">Welcome to BlikV2</Heading>
-            <Button
-              mt="2"
-              colorScheme="gray"
-              onPress={() => {
-                navigation.push("Login");
-              }}
-            >
-              Zaloguj
-            </Button>
-            {/* <Button mt="3" colorScheme="gray"
-              onPress={() => {
-                navigation.push('Register')
-              }}>Zarejestruj</Button> */}
-          </VStack>
+    <Center
+      _dark={{ bg: "blueGray.900" }}
+      _light={{ bg: "blueGray.50" }}
+      px={4}
+      flex={1}
+    >
+      <VStack space={5} alignItems="center">
+        <Center>
+          <Image
+            size={300}
+            resizeMode={"contain"}
+            source={require('./../../layout/logo.png')}
+            alt="Logo"
+          />
         </Center>
+        <Heading size="lg">Welcome to BlikV2</Heading>
+        <Button
+          mt="2"
+          colorScheme="gray"
+          onPress={() => {
+            navigation.push("Login");
+          }}
+        >
+          Go to App!
+        </Button>
+      </VStack>
+    </Center>
   );
 };

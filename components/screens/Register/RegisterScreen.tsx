@@ -1,19 +1,21 @@
 import * as React from "react";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/native";
+
 import {
   Box,
-  Heading,
-  VStack,
-  FormControl,
-  Input,
   Button,
   Center,
+  FormControl,
+  Heading,
+  Input,
   NativeBaseProvider,
+  VStack,
 } from "native-base";
-import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import { StackNavigationProp } from "@react-navigation/stack";
 import { auth } from "../../config/Firebase/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 export const Register = () => {
   const navigation = useNavigation<
@@ -56,7 +58,11 @@ export const Register = () => {
           </FormControl>
           <FormControl>
             <FormControl.Label>Password</FormControl.Label>
-            <Input type="password" value={password} onChangeText={setPassword} />
+            <Input
+              type="password"
+              value={password}
+              onChangeText={setPassword}
+            />
           </FormControl>
 
           <Button
@@ -64,18 +70,15 @@ export const Register = () => {
             colorScheme="gray"
             onPress={async () => {
               try {
-
-                console.log(await createUserWithEmailAndPassword(auth, login, password))
-
+                await createUserWithEmailAndPassword(auth, login, password);
                 navigation.push("Login");
               } catch (error) {
-                console.error(error)
+                console.error(error);
               }
             }}
           >
             Register
           </Button>
-
         </VStack>
       </Box>
     </Center>

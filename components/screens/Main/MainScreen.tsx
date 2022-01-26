@@ -11,15 +11,10 @@ export const Main = () => {
 
   const navigation = useNavigation<
     StackNavigationProp<{
-      Home: undefined;
-      Login: undefined;
-      Approved: undefined;
       TabMenu: undefined;
-      Declined: undefined;
       Payment: { data: String };
       QRGenerator: undefined;
       Wallet: undefined;
-      // Register: undefined
     }>
   >();
   return (
@@ -32,33 +27,7 @@ export const Main = () => {
       >
         <VStack space={5} alignItems="center">
           <Heading size="lg">Welcome {user.email}</Heading>
-          <Button
-            mt="4"
-            colorScheme="gray"
-            onPress={() => {
-              navigation.push("Approved");
-            }}
-          >
-            Approved
-          </Button>
-          <Button
-            mt="5"
-            colorScheme="gray"
-            onPress={() => {
-              navigation.push("Declined");
-            }}
-          >
-            Declined
-          </Button>
-          <Button
-            mt="6"
-            colorScheme="gray"
-            onPress={() => {
-              navigation.push("Payment");
-            }}
-          >
-            Payment
-          </Button>
+
           <Button
             mt="6"
             colorScheme="gray"
@@ -76,6 +45,16 @@ export const Main = () => {
             }}
           >
             Wallet
+          </Button>
+
+          <Button
+            mt="2"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("ChangePassword");
+            }}
+          >
+            Want to change password?
           </Button>
         </VStack>
       </Center>
