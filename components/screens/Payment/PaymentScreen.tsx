@@ -45,8 +45,8 @@ export const Payment = ({ route }) => {
             colorScheme="gray"
             onPress={() => {
               if (number == "1111") {
-                navigation.push("Approved");
-              } else navigation.push("Declined");
+                navigation.navigate("Approved");
+              } else navigation.navigate("Declined");
             }}
           >
             Pay

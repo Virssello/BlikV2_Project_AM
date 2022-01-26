@@ -71,7 +71,7 @@ export const QRGenerator = () => {
               mt="2"
               colorScheme="gray"
               onPress={() => {
-                navigation.push("Main");
+                navigation.navigate("Main");
               }}
             >
               Go to Main

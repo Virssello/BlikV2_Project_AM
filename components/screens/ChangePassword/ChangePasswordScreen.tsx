@@ -96,7 +96,7 @@ export const ChangePassword = () => {
               try {
                 await reauthenticateWithCredential(user, credential),
                   await updatePassword(user, newPassword);
-                navigation.push("Main");
+                navigation.navigate("Main");
               } catch (error) {
                 console.error(error);
               }

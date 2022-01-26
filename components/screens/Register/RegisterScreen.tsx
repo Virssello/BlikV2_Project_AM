@@ -71,7 +71,7 @@ export const Register = () => {
             onPress={async () => {
               try {
                 await createUserWithEmailAndPassword(auth, login, password);
-                navigation.push("Login");
+                navigation.navigate("Login");
               } catch (error) {
                 console.error(error);
               }

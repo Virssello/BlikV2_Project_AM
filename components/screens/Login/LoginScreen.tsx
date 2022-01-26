@@ -75,7 +75,7 @@ export const Login = () => {
             onPress={async () => {
               try {
                 await signInWithEmailAndPassword(auth, login, password);
-                navigation.push("Main");
+                navigation.navigate("Main");
               } catch (error) {
                 console.error(error);
               }

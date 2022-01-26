@@ -79,7 +79,7 @@ export const ForgotPassword = () => {
             onPress={async () => {
               try {
                 await sendPasswordResetEmail(auth, userEmail),
-                  navigation.push("Login");
+                  navigation.navigate("Login");
               } catch (error) {
                 console.error(error);
               }

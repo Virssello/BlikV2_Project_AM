@@ -15,7 +15,7 @@ export const Wallet = () => {
 
   const saveFundsFunction = () => {
     if (funds) {
-      AsyncStorage.setItem("@save_funds", funds);
+      AsyncStorage.setItem(STORAGE_KEY, funds);
 
       setFunds("");
 
@@ -26,7 +26,7 @@ export const Wallet = () => {
   };
 
   const getFundsFunction = () => {
-    AsyncStorage.getItem("@save_funds").then((value) => setGetFunds(value));
+    AsyncStorage.getItem(STORAGE_KEY).then((value) => setGetFunds(value));
   };
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export const Wallet = () => {
             mt="2"
             colorScheme="gray"
             onPress={() => {
-              navigation.push("Main");
+              navigation.navigate("Main");
             }}
           >
             Go to Main

@@ -1,9 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { Center, VStack, Heading, HStack, Code, Link, Text, Switch, useColorMode, Button, View, CloseIcon } from "native-base";
+import { Button, Center, CloseIcon, Code, HStack, Heading, Link, Switch, Text, VStack, View, useColorMode } from "native-base";
+
 import React from "react";
-
-
+import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 export const Declined = () => {
   const navigation = useNavigation<StackNavigationProp<{
@@ -21,7 +20,7 @@ export const Declined = () => {
               <Heading size="lg" color="error.500">Payment was declined, please try again :C</Heading>
               <Button mt="2" colorScheme="gray"
                onPress={() => {
-                navigation.push('Main')
+                navigation.navigate('Main')
               }}>Go to Main</Button>
             </VStack>
           </Center>

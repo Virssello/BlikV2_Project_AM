@@ -47,7 +47,7 @@ export const Home = () => {
           mt="2"
           colorScheme="gray"
           onPress={() => {
-            navigation.push("Login");
+            navigation.navigate("Login");
           }}
         >
           Go to App!

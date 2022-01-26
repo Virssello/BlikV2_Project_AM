@@ -27,7 +27,7 @@ export default function Scanner() {
   const handleBarCodeScanned = ({ data }) => {
     setScanned(true);
     alert(`Bar code has been scanned successfully!`)
-    navigation.push('Payment', {data: JSON.parse(data)});
+    navigation.navigate('Payment', {data: JSON.parse(data)});
   };
 
 

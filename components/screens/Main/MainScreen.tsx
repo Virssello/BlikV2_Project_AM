@@ -32,7 +32,7 @@ export const Main = () => {
             mt="6"
             colorScheme="gray"
             onPress={() => {
-              navigation.push("QRGenerator");
+              navigation.navigate("QRGenerator");
             }}
           >
             QR Generator
@@ -42,7 +42,7 @@ export const Main = () => {
             mt="2"
             colorScheme="gray"
             onPress={() => {
-              navigation.push("Wallet");
+              navigation.navigate("Wallet");
             }}
           >
             Wallet
@@ -52,7 +52,7 @@ export const Main = () => {
             mt="2"
             colorScheme="gray"
             onPress={() => {
-              navigation.push("ChangePassword");
+              navigation.navigate("ChangePassword");
             }}
           >
             Want to change password?

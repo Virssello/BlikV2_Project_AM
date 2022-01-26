@@ -21,7 +21,7 @@ export const Approved = () => {
               <Heading size="lg" color="emerald.500">Payment was approved :)</Heading>
               <Button mt="2" colorScheme="gray"
                onPress={() => {
-                navigation.push('Main')
+                navigation.navigate('Main')
               }}>Go to Main</Button>
             </VStack>
           </Center>
