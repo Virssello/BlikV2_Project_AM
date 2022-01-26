@@ -29,7 +29,7 @@ export const Payment = ({ route }) => {
           </Heading>
         </Center>
         <TextInput
-          style={styles.input}
+style={styles.input}
           textAlign="center"
           value={number}
           placeholder="PIN Number"
@@ -56,3 +56,13 @@ export const Payment = ({ route }) => {
     </VStack>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    fontSize: 40,
+    height: 70,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+});

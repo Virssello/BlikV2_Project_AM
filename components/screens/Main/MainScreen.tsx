@@ -13,8 +13,8 @@ export const Main = () => {
     StackNavigationProp<{
       TabMenu: undefined;
       Payment: { data: String };
+      ChangePassword: undefined;
       QRGenerator: undefined;
-      Wallet: undefined;
     }>
   >();
   return (
@@ -37,15 +37,7 @@ export const Main = () => {
           >
             QR Generator
           </Button>
-          <Button
-            mt="6"
-            colorScheme="gray"
-            onPress={() => {
-              navigation.push("Wallet");
-            }}
-          >
-            Wallet
-          </Button>
+
 
           <Button
             mt="2"

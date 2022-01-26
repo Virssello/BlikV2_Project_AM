@@ -102,7 +102,7 @@ export const ChangePassword = () => {
               }
             }}
           >
-            Login
+            Reset
           </Button>
         </VStack>
       </Box>
