@@ -25,11 +25,11 @@ export const Payment = ({ route }) => {
       <SafeAreaView>
         <Center>
           <Heading>
-            Kwota do zaplaty to: {amount} za {name}
+            You have to pay {amount} $ for {name}
           </Heading>
         </Center>
         <TextInput
-style={styles.input}
+          style={styles.input}
           textAlign="center"
           value={number}
           placeholder="PIN Number"

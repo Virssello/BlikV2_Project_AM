@@ -15,6 +15,7 @@ export const Main = () => {
       Payment: { data: String };
       ChangePassword: undefined;
       QRGenerator: undefined;
+      Wallet: undefined;
     }>
   >();
   return (
@@ -27,7 +28,6 @@ export const Main = () => {
       >
         <VStack space={5} alignItems="center">
           <Heading size="lg">Welcome {user.email}</Heading>
-
           <Button
             mt="6"
             colorScheme="gray"
@@ -38,6 +38,15 @@ export const Main = () => {
             QR Generator
           </Button>
 
+          <Button
+            mt="2"
+            colorScheme="gray"
+            onPress={() => {
+              navigation.push("Wallet");
+            }}
+          >
+            Wallet
+          </Button>
 
           <Button
             mt="2"

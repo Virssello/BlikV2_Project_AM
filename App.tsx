@@ -14,6 +14,7 @@ import { Payment } from "./components/screens/Payment/PaymentScreen";
 import { QRGenerator } from "./components/screens/QRGenerator/QRGeneratorScreen";
 import TabMenu from "./components/menu/TabMenu/TabMenu";
 import TopMenu from "./components/menu/TopMenu/TopMenu";
+import { Wallet } from "./components/screens/Wallet/WalletScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
@@ -32,6 +33,7 @@ export default function App() {
           <Stack.Screen name="Approved" component={Approved} />
           <Stack.Screen name="Declined" component={Declined} />
           <Stack.Screen name="QRGenerator" component={QRGenerator} />
+          <Stack.Screen name="Wallet" component={Wallet} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
