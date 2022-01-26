@@ -60,7 +60,7 @@ export const ChangePassword = () => {
           fontWeight="medium"
           size="xs"
         >
-          Sign in to continue!
+          Change your password!
         </Heading>
 
         <VStack space={3} mt="5">
